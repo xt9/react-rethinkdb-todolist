@@ -1,0 +1,17 @@
+{
+  "name": "react-rethinkdb-todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "rethinkdbdash": "^2.3.31",
+    "socket.io": "^2.3.0",
+    "socket.io-json-parser": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xt9",
+  "license": "MIT"
+}
