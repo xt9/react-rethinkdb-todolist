@@ -21,7 +21,7 @@ const App = () => {
             <h4>Add Todos</h4>
 
             <InputGroup className="mb-3">
-                <FormControl placeholder="Feed the T-rex out back" ref={todoInput} />
+                <FormControl placeholder="Throw gasoline on spider-infested house" ref={todoInput} />
                 <Button variant="success" className="btn-add" onClick={() => addTodo(todoInput.current)}>Add Todo</Button>
             </InputGroup>
 

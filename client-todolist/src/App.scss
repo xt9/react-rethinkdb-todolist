@@ -17,6 +17,11 @@ h4 {
   border-radius: 0;
 }
 
+.form-control::placeholder {
+  color: #c3c8cc;
+  opacity: 1;
+}
+
 /* Checkboxes */
 /* https://codepen.io/BuddyLReno/pen/boGRPO */
 .todoitem {

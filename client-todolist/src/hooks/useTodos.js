@@ -24,13 +24,13 @@ const useTodos = (socket) => {
     const [todos, dispatch] = useReducer(reducer, []);
     const completed = todos.filter((todo) => todo.isCompleted);
 
-    // useEffect with socket as deps will only run once when mounted (no return callback so it wont be called on unmount)
+    /* useEffect with socket as deps will only run once when mounted (no return callback so it wont be called on unmount) */
     useEffect(() => {
         /* Attach a listeners */
         socket.on('TODO_PAYLOAD', (todos) => dispatch({ type: 'RECEIVED_TODOS', data: todos }));
-        socket.on('RETHINK_TODO_INSERTED', (todo) => dispatch({ type: 'TODO_INSERTED', data: todo }));
-        socket.on('RETHINK_TODO_DELETED', (todo) => dispatch({ type: 'TODO_DELETED', data: todo }));
-        socket.on('RETHINK_TODO_UPDATED', (todo) => dispatch({ type: 'TODO_UPDATED', data: todo }));
+        socket.on('TODO_INSERTED', (todo) => dispatch({ type: 'TODO_INSERTED', data: todo }));
+        socket.on('TODO_DELETED', (todo) => dispatch({ type: 'TODO_DELETED', data: todo }));
+        socket.on('TODO_UPDATED', (todo) => dispatch({ type: 'TODO_UPDATED', data: todo }));
     }, [socket]);
 
     function addTodo(currentInput) {
