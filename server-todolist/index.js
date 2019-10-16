@@ -51,9 +51,7 @@ io.on('connection', (socket) => {
         r.table('todos').get(data.id).update({ isCompleted: !data.isCompleted }).run();
     });
 
-    const dbChangeListener = (event) => {
-        socket.emit(event.type, event.todo);
-    }
+    const dbChangeListener = (event) => socket.emit(event.type, event.todo);
 
     /* Listen on changefeed events */
     ee.on('RETHINK_TODO_CHANGE', dbChangeListener);

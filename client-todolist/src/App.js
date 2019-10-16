@@ -16,13 +16,24 @@ const App = () => {
     const { todos, completed, addTodo, deleteCompleted, toggleCompleted } = useTodos(socket);
     const todoInput = useRef(null);
 
+    const addTodoHandler = (e) => {
+        if (e.key === 'Enter') {
+            addTodo(todoInput.current);
+        }
+    };
+
     return (
         <div className="App">
             <h4>Add Todos</h4>
 
             <InputGroup className="mb-3">
-                <FormControl placeholder="Throw gasoline on spider-infested house" ref={todoInput} />
-                <Button variant="success" className="btn-add" onClick={() => addTodo(todoInput.current)}>Add Todo</Button>
+                <FormControl
+                    className="add-todo"
+                    ref={todoInput}
+                    onKeyDown={addTodoHandler}
+                    placeholder="Throw gasoline on spider-infested house"
+                />
+                <Button variant="success" className="btn-add add-todo" onClick={() => addTodo(todoInput.current)}>Add Todo</Button>
             </InputGroup>
 
             <h4>Your Todos ({todos.length})</h4>
@@ -42,7 +53,7 @@ const App = () => {
                     );
                 })}
             </div>
-            <Button variant="outline-danger" disabled={completed.length === 0} onClick={() => deleteCompleted()}>
+            <Button id="delete-todos" variant="outline-danger" disabled={completed.length === 0} onClick={() => deleteCompleted()}>
                 Delete Completed ({completed.length})
             </Button>
         </div>
